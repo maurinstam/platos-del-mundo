@@ -34,6 +34,13 @@ const platos = [
     region: "Oceanía",
     descripcion: "Postre de merengue crujiente por fuera y suave por dentro, con frutas frescas.",
     imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Pavlova_%284821484355%29.jpg/800px-Pavlova_%284821484355%29.jpg"
+  },
+  {
+    nombre: "Feijoada",
+    pais: "Brasil",
+    region: "América",
+    descripcion: "Guiso tradicional brasileño hecho con frijoles negros y carnes ahumadas.",
+    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Feijoada_2010.jpg/800px-Feijoada_2010.jpg"
   }
 ];
 
@@ -52,8 +59,10 @@ function mostrarPlatos(lista) {
   lista.forEach(plato => {
     const card = document.createElement('div');
     card.className = 'plato-card';
+    // Usamos picsum.photos como fallback confiable
     card.innerHTML = `
-      <img src="${plato.imagen}" alt="${plato.nombre}" onerror="this.src='https://via.placeholder.com/250x150?text=Sin+imagen'">
+      <img src="${plato.imagen}" alt="${plato.nombre}" 
+           onerror="this.onerror=null; this.src='https://picsum.photos/250/150?grayscale'">
       <h3>${plato.nombre}</h3>
       <p><em>${plato.pais}</em></p>
     `;
@@ -66,12 +75,12 @@ function mostrarPlatos(lista) {
 function mostrarDetalle(plato) {
   detallePlato.style.display = 'block';
   detallePlato.innerHTML = `
-    <img src="${plato.imagen}" alt="${plato.nombre}" onerror="this.src='https://via.placeholder.com/400x250?text=Sin+imagen'">
+    <img src="${plato.imagen}" alt="${plato.nombre}" 
+         onerror="this.onerror=null; this.src='https://picsum.photos/400/250?grayscale'">
     <h2>${plato.nombre}</h2>
     <p><strong>País:</strong> ${plato.pais} (${plato.region})</p>
     <p>${plato.descripcion}</p>
   `;
-  // Scroll automático al detalle
   detallePlato.scrollIntoView({ behavior: 'smooth' });
 }
 
