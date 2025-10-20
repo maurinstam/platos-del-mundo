@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Platos del Mundo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌍 Platos del Mundo</h1>
+    <input type="text" id="searchInput" placeholder="Buscar plato..." />
+    <select id="regionFilter">
+      <option value="">Todas las regiones</option>
+      <option value="América">América</option>
+      <option value="Europa">Europa</option>
+      <option value="Asia">Asia</option>
+      <option value="África">África</option>
+      <option value="Oceanía">Oceanía</option>
+    </select>
+  </header>
+
+  <main>
+    <div id="platosContainer" class="grid"></div>
+    <div id="detallePlato" class="detalle" style="display: none;"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
